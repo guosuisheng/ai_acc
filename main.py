@@ -27,6 +27,9 @@ class JsonApp:
         self.load_button = tk.Button(root, text="Load", command=self.load_json)
         self.load_button.grid(row=1, column=1, padx=10, pady=10)
 
+        self.clear_button = tk.Button(root, text="Clear", command=self.clear_text_area)
+        self.clear_button.grid(row=2, column=1, padx=10, pady=10)
+
         self.quit_button = tk.Button(root, text="Quit", command=self.quit_app)
         self.quit_button.grid(row=2, column=0, padx=10, pady=10)
 
@@ -99,6 +102,9 @@ class JsonApp:
         if row:
             self.text_area.delete("1.0", tk.END)
             self.text_area.insert(tk.END, row[0])
+
+    def clear_text_area(self):
+        self.text_area.delete("1.0", tk.END)
 
     def quit_app(self):
         self.conn.close()
